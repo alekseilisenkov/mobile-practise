@@ -3,6 +3,8 @@ package com.alexlis.tests;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import jdk.nashorn.internal.ir.annotations.Ignore;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,6 +19,7 @@ public class BrowserStackMobileAndroidSampleTest {
     public static String userName = "bsuser_ecN3VA";
     public static String accessKey = "V1ZWspNUrkiMDYqm3L4U";
 
+    @Disabled
     @Test
     void searchTest() throws InterruptedException, MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();

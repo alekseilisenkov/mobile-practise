@@ -26,7 +26,7 @@ dependencies {
             "org.aspectj:aspectjweaver:1.9.6",
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
-            "io.appium:java-client:7.3.0",
+            "io.appium:java-client:7.6.0",
             "io.rest-assured:rest-assured:4.3.3",
             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
             "org.aeonbits.owner:owner:1.0.12",
@@ -57,4 +57,11 @@ task selenide_android(type: Test) {
     useJUnitPlatform {
         includeTags 'selenide_android'
     }
+}
+
+task browserstack_android(type: Test) {
+    useJUnitPlatform {
+        includeTags 'selenide_android'
+    }
+    systemProperty "deviceFarm", "browserstack"
 }

@@ -31,8 +31,8 @@ public class Pages {
             searchValueInput.val(value);
         });
         return this;
-    }   
-    
+    }
+
     public Pages checkValue() {
         step("Set value on search form", () -> {
             searchList.shouldHave(sizeGreaterThan(0));

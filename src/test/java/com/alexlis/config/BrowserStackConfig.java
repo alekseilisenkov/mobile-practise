@@ -2,10 +2,10 @@ package com.alexlis.config;
 
 import org.aeonbits.owner.Config;
 
-@MainConfig.Sources({
+@BrowserStackConfig.Sources({
         "classpath:config/credentials.properties"
 })
-public interface MainConfig extends Config {
+public interface BrowserStackConfig extends Config {
 
     @Config.Key("userName")
     String getUserName();

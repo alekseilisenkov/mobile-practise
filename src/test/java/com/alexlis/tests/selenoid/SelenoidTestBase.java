@@ -1,6 +1,5 @@
 package com.alexlis.tests.selenoid;
 
-import com.alexlis.drivers.LocalMobileDriver;
 import com.alexlis.drivers.SelenoidMobileDriver;
 import com.alexlis.helpers.Attach;
 import com.alexlis.pages.LocalPages;

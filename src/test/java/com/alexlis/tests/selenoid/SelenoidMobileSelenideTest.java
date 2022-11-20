@@ -1,6 +1,5 @@
 package com.alexlis.tests.selenoid;
 
-import com.alexlis.tests.local.LocalTestBase;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
@@ -11,7 +10,7 @@ import static com.codeborne.selenide.Selenide.back;
 
 public class SelenoidMobileSelenideTest extends SelenoidTestBase {
 
-    @Tag("local_android")
+    @Tag("selenoid")
     @Test
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Getting started screen check")
@@ -27,7 +26,7 @@ public class SelenoidMobileSelenideTest extends SelenoidTestBase {
                 .mainPageCheck();
     }
 
-    @Tag("local_android")
+    @Tag("selenoid")
     @Test
     @Severity(SeverityLevel.MINOR)
     @DisplayName("Successful search in wikipedia android app")

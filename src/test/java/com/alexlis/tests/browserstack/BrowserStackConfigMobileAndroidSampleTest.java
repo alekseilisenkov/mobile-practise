@@ -5,6 +5,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,11 +15,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-public class BrowserStackMobileAndroidSampleTest {
+public class BrowserStackConfigMobileAndroidSampleTest {
 
     public static String userName = "bsuser_ecN3VA";
     public static String accessKey = "V1ZWspNUrkiMDYqm3L4U";
 
+    @Tag("browserstack")
     @Disabled
     @Test
     void searchTest() throws InterruptedException, MalformedURLException {

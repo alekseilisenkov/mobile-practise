@@ -1,6 +1,6 @@
 package com.alexlis.drivers;
 
-import com.alexlis.config.MainConfig;
+import com.alexlis.config.RealDeviceConfig;
 import com.codeborne.selenide.WebDriverProvider;
 import io.appium.java_client.android.AndroidDriver;
 import org.aeonbits.owner.ConfigFactory;
@@ -23,10 +23,13 @@ public class RealDeviceDriver implements WebDriverProvider {
         }
     }
 
+    RealDeviceConfig config = ConfigFactory.create(RealDeviceConfig.class, System.getProperties());
+    String deviceName = config.deviceName();
+
     @Override
     public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
-        desiredCapabilities.setCapability("platformName", "Android");
-        desiredCapabilities.setCapability("deviceName", "R58N63MPWEH");
+        desiredCapabilities.setCapability("platformName", "android");
+        desiredCapabilities.setCapability("deviceName", deviceName);
         desiredCapabilities.setCapability("version", "12.0");
         desiredCapabilities.setCapability("locale", "en");
         desiredCapabilities.setCapability("language", "en");

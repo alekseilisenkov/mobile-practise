@@ -2,7 +2,7 @@ package com.alexlis.helpers;
 
 import com.alexlis.config.StartConfig;
 import com.alexlis.drivers.BrowserStackMobileDriver;
-import com.alexlis.drivers.LocalMobileDriver;
+import com.alexlis.drivers.EmulatorMobileDriver;
 import com.alexlis.drivers.RealDeviceDriver;
 import com.alexlis.drivers.SelenoidMobileDriver;
 import org.aeonbits.owner.ConfigFactory;
@@ -23,7 +23,7 @@ public class RunConfiguration {
             case "browserstack":
                 return BrowserStackMobileDriver.class;
             case "local":
-                return LocalMobileDriver.class;
+                return EmulatorMobileDriver.class;
             case "real":
                 return RealDeviceDriver.class;
             case "selenoid":

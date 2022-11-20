@@ -1,25 +1,24 @@
 package com.alexlis.drivers;
 
-import com.alexlis.config.MainConfig;
+import com.alexlis.config.SelenoidConfig;
 import com.codeborne.selenide.WebDriverProvider;
 import io.appium.java_client.android.AndroidDriver;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SelenoidMobileDriver implements WebDriverProvider {
 
     public static URL getSelenoidServerUrl() {
-        MainConfig config = ConfigFactory.create(MainConfig.class, System.getProperties());
-        String url = config.getUrl();
+        SelenoidConfig configuration = ConfigFactory.create(SelenoidConfig.class, System.getProperties());
+        String user = configuration.user(),
+                password = configuration.password();
+
         try {
-            return new URL("https://user1:1234@selenoid.autotests.cloud:4444/wd/hub");
+            return new URL("https://" + user + ":" + password + "@selenoid.autotests.cloud:4444/wd/hub");
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -34,7 +33,6 @@ public class SelenoidMobileDriver implements WebDriverProvider {
         desiredCapabilities.setCapability("language", "en");
         desiredCapabilities.setCapability("enableVNC", true);
         desiredCapabilities.setCapability("enableVideo", true);
-
         desiredCapabilities.setCapability("appPackage", "org.wikipedia.alpha");
         desiredCapabilities.setCapability("appActivity", "org.wikipedia.main.MainActivity");
         desiredCapabilities.setCapability("app", apkUrl());

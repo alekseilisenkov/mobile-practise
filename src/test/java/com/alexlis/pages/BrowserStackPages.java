@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 
-public class Pages {
+public class BrowserStackPages {
 
     private SelenideElement searchFormClick = $(MobileBy.AccessibilityId("Search Wikipedia"));
     private SelenideElement searchValueInput = $(MobileBy.id("org.wikipedia.alpha:id/search_src_text"));
@@ -19,42 +19,42 @@ public class Pages {
     private SelenideElement moreButtonMenuHeadText = $(MobileBy.id("org.wikipedia.alpha:id/explore_overflow_account_name"));
     private SelenideElement mainPage = $(MobileBy.id("org.wikipedia.alpha:id/view_card_header_title"));
 
-    public Pages searchFormClick() {
+    public BrowserStackPages searchFormClick() {
         step("Click on search form", () -> {
             searchFormClick.click();
         });
         return this;
     }
 
-    public Pages setValue(String value) {
+    public BrowserStackPages setValue(String value) {
         step("Set value on search form", () -> {
             searchValueInput.val(value);
         });
         return this;
     }
 
-    public Pages checkValue() {
+    public BrowserStackPages checkValue() {
         step("Set value on search form", () -> {
             searchList.shouldHave(sizeGreaterThan(0));
         });
         return this;
     }
 
-    public Pages moreButtonClick() {
+    public BrowserStackPages moreButtonClick() {
         step("Click more button", () -> {
             moreButton.click();
         });
         return this;
     }
 
-    public Pages moreButtonCheckForHeadText() {
+    public BrowserStackPages moreButtonCheckForHeadText() {
         step("Click more button", () -> {
             moreButtonMenuHeadText.shouldHave(Condition.text("Log in to Wikipedia"));
         });
         return this;
     }
 
-    public Pages mainPageCheck() {
+    public BrowserStackPages mainPageCheck() {
         step("Click more button", () -> {
             mainPage.shouldHave(Condition.text("In the news"));
         });

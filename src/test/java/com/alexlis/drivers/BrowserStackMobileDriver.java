@@ -1,6 +1,6 @@
 package com.alexlis.drivers;
 
-import com.alexlis.config.MainConfig;
+import com.alexlis.config.BrowserStackConfig;
 import com.codeborne.selenide.WebDriverProvider;
 import io.appium.java_client.android.AndroidDriver;
 import org.aeonbits.owner.ConfigFactory;
@@ -13,7 +13,7 @@ import java.net.URL;
 public class BrowserStackMobileDriver implements WebDriverProvider {
 
     public static URL getBrowserstackUrl() {
-        MainConfig config = ConfigFactory.create(MainConfig.class, System.getProperties());
+        BrowserStackConfig config = ConfigFactory.create(BrowserStackConfig.class, System.getProperties());
         String url = config.getUrl();
         try {
             return new URL(url);
@@ -24,7 +24,7 @@ public class BrowserStackMobileDriver implements WebDriverProvider {
 
     @Override
     public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
-        MainConfig config = ConfigFactory.create(MainConfig.class, System.getProperties());
+        BrowserStackConfig config = ConfigFactory.create(BrowserStackConfig.class, System.getProperties());
         String userName = config.getUserName();
         String accessKey = config.getAccessKey();
 

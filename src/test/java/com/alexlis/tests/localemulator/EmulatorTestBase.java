@@ -1,9 +1,8 @@
-package com.alexlis.tests.local;
+package com.alexlis.tests.localemulator;
 
-import com.alexlis.drivers.LocalMobileDriver;
+import com.alexlis.drivers.EmulatorMobileDriver;
 import com.alexlis.helpers.Attach;
 import com.alexlis.pages.LocalPages;
-import com.alexlis.pages.Pages;
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -14,7 +13,7 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
-public class LocalTestBase {
+public class EmulatorTestBase {
 
     LocalPages localPages = new LocalPages();
 
@@ -22,7 +21,7 @@ public class LocalTestBase {
     public static void setUp() {
         addListener("AllureSelenide", new AllureSelenide());
 
-        Configuration.browser = LocalMobileDriver.class.getName();
+        Configuration.browser = EmulatorMobileDriver.class.getName();
         Configuration.startMaximized = false;
         Configuration.browserSize = null;
         Configuration.timeout = 10000;

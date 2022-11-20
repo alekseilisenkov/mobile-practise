@@ -1,4 +1,4 @@
-package com.alexlis.tests.local;
+package com.alexlis.tests.localemulator;
 
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -8,9 +8,9 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.back;
 
-public class LocalMobileSelenideTest extends LocalTestBase {
+public class EmulatorSelenideTest extends EmulatorTestBase {
 
-    @Tag("local_android")
+    @Tag("emulator")
     @Test
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Getting started screen check")
@@ -26,7 +26,7 @@ public class LocalMobileSelenideTest extends LocalTestBase {
                 .mainPageCheck();
     }
 
-    @Tag("local_android")
+    @Tag("emulator")
     @Test
     @Severity(SeverityLevel.MINOR)
     @DisplayName("Successful search in wikipedia android app")

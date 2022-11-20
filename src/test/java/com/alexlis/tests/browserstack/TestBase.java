@@ -2,7 +2,7 @@ package com.alexlis.tests.browserstack;
 
 import com.alexlis.drivers.BrowserStackMobileDriver;
 import com.alexlis.helpers.Attach;
-import com.alexlis.pages.Pages;
+import com.alexlis.pages.BrowserStackPages;
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -15,7 +15,7 @@ import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
 public class TestBase {
 
-    Pages pages = new Pages();
+    BrowserStackPages browserStackPages = new BrowserStackPages();
 
     @BeforeAll
     public static void setUp() {

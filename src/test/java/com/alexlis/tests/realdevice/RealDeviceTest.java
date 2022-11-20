@@ -1,4 +1,4 @@
-package com.alexlis.tests.RealDevice;
+package com.alexlis.tests.realdevice;
 
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;

@@ -1,6 +1,7 @@
 package com.alexlis.drivers;
 
-import com.alexlis.config.MainConfig;
+import com.alexlis.config.BrowserStackConfig;
+import com.alexlis.config.LocalEmulatorConfig;
 import com.codeborne.selenide.WebDriverProvider;
 import io.appium.java_client.android.AndroidDriver;
 import org.aeonbits.owner.ConfigFactory;
@@ -13,13 +14,13 @@ import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class LocalMobileDriver implements WebDriverProvider {
+public class EmulatorMobileDriver implements WebDriverProvider {
 
     public static URL getAppiumServerUrl() {
-        MainConfig config = ConfigFactory.create(MainConfig.class, System.getProperties());
-        String url = config.getUrl();
+        LocalEmulatorConfig config = ConfigFactory.create(LocalEmulatorConfig.class, System.getProperties());
+        String url = config.url();
         try {
-            return new URL("http://127.0.0.1:4723/wd/hub");
+            return new URL(url);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -27,12 +28,14 @@ public class LocalMobileDriver implements WebDriverProvider {
 
     @Override
     public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
+        LocalEmulatorConfig config = ConfigFactory.create(LocalEmulatorConfig.class, System.getProperties());
+        String deviceName = config.deviceName();
+
         desiredCapabilities.setCapability("platformName", "Android");
-        desiredCapabilities.setCapability("deviceName", "Pixel_4_API_30");
+        desiredCapabilities.setCapability("deviceName", deviceName);
         desiredCapabilities.setCapability("version", "11.0");
         desiredCapabilities.setCapability("locale", "en");
         desiredCapabilities.setCapability("language", "en");
-
         desiredCapabilities.setCapability("appPackage", "org.wikipedia.alpha");
         desiredCapabilities.setCapability("appActivity", "org.wikipedia.main.MainActivity");
         desiredCapabilities.setCapability("app",

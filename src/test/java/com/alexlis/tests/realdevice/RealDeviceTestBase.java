@@ -1,4 +1,4 @@
-package com.alexlis.tests.RealDevice;
+package com.alexlis.tests.realdevice;
 
 import com.alexlis.drivers.RealDeviceDriver;
 import com.alexlis.helpers.Attach;
@@ -24,7 +24,7 @@ public class RealDeviceTestBase {
         Configuration.browser = RealDeviceDriver.class.getName();
         Configuration.startMaximized = false;
         Configuration.browserSize = null;
-        Configuration.timeout = 10000;
+        Configuration.timeout = 100000;
     }
 
     @BeforeEach

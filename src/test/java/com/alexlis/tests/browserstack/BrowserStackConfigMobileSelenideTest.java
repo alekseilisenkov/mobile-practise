@@ -6,32 +6,32 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-public class BrowserStackMobileSelenideTest extends TestBase {
+public class BrowserStackConfigMobileSelenideTest extends TestBase {
 
-    @Tag("selenide_android")
+    @Tag("browserstack")
     @Test
     @Severity(SeverityLevel.TRIVIAL)
     @DisplayName("Main page text verification")
     void checkMainPageText() {
-        pages.mainPageCheck();
+        browserStackPages.mainPageCheck();
     }
 
-    @Tag("selenide_android")
+    @Tag("browserstack")
     @Test
     @Severity(SeverityLevel.MINOR)
     @DisplayName("Successful search in wikipedia android app")
     void searchTest() {
-        pages.searchFormClick()
+        browserStackPages.searchFormClick()
                 .setValue("BrowserStack")
                 .checkValue();
     }
 
-    @Tag("selenide_android")
+    @Tag("browserstack")
     @Test
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("'More' menu item text verification")
     void moreButtonTest() {
-        pages.moreButtonClick()
+        browserStackPages.moreButtonClick()
                 .moreButtonCheckForHeadText();
     }
 }

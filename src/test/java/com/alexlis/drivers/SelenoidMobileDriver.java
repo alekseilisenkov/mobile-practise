@@ -1,5 +1,6 @@
 package com.alexlis.drivers;
 
+import com.alexlis.config.DriverConstructor;
 import com.alexlis.config.SelenoidConfig;
 import com.codeborne.selenide.WebDriverProvider;
 import io.appium.java_client.android.AndroidDriver;
@@ -13,12 +14,8 @@ import java.net.URL;
 public class SelenoidMobileDriver implements WebDriverProvider {
 
     public static URL getSelenoidServerUrl() {
-        SelenoidConfig configuration = ConfigFactory.create(SelenoidConfig.class, System.getProperties());
-        String user = configuration.user(),
-                password = configuration.password();
-
         try {
-            return new URL("https://" + user + ":" + password + "@selenoid.autotests.cloud:4444/wd/hub");
+            return new URL(DriverConstructor.selenoidConfig.url());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -26,9 +23,9 @@ public class SelenoidMobileDriver implements WebDriverProvider {
 
     @Override
     public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
-        desiredCapabilities.setCapability("platformName", "Android");
-        desiredCapabilities.setCapability("deviceName", "android");
-        desiredCapabilities.setCapability("version", "8.1");
+        desiredCapabilities.setCapability("platformName", DriverConstructor.selenoidConfig.platformName());
+        desiredCapabilities.setCapability("deviceName", DriverConstructor.selenoidConfig.deviceName());
+        desiredCapabilities.setCapability("version", DriverConstructor.selenoidConfig.version());
         desiredCapabilities.setCapability("locale", "en");
         desiredCapabilities.setCapability("language", "en");
         desiredCapabilities.setCapability("enableVNC", true);

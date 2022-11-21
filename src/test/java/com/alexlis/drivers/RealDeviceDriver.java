@@ -1,9 +1,8 @@
 package com.alexlis.drivers;
 
-import com.alexlis.config.RealDeviceConfig;
+import com.alexlis.config.DriverConstructor;
 import com.codeborne.selenide.WebDriverProvider;
 import io.appium.java_client.android.AndroidDriver;
-import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -23,17 +22,13 @@ public class RealDeviceDriver implements WebDriverProvider {
         }
     }
 
-    RealDeviceConfig config = ConfigFactory.create(RealDeviceConfig.class, System.getProperties());
-    String deviceName = config.deviceName();
-
     @Override
     public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
         desiredCapabilities.setCapability("platformName", "android");
-        desiredCapabilities.setCapability("deviceName", deviceName);
+        desiredCapabilities.setCapability("deviceName", DriverConstructor.realDeviceConfig.deviceName());
         desiredCapabilities.setCapability("version", "12.0");
         desiredCapabilities.setCapability("locale", "en");
         desiredCapabilities.setCapability("language", "en");
-
         desiredCapabilities.setCapability("appPackage", "org.wikipedia.alpha");
         desiredCapabilities.setCapability("appActivity", "org.wikipedia.main.MainActivity");
         desiredCapabilities.setCapability("app",

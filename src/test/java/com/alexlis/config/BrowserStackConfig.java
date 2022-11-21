@@ -3,7 +3,7 @@ package com.alexlis.config;
 import org.aeonbits.owner.Config;
 
 @BrowserStackConfig.Sources({
-        "classpath:config/credentials.properties"
+        "classpath:config/browserstack.properties"
 })
 public interface BrowserStackConfig extends Config {
 

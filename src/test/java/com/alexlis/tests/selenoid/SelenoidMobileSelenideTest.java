@@ -1,5 +1,6 @@
 package com.alexlis.tests.selenoid;
 
+import com.alexlis.tests.MainTestBase;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
@@ -8,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.back;
 
-public class SelenoidMobileSelenideTest extends SelenoidTestBase {
+public class SelenoidMobileSelenideTest extends MainTestBase {
 
     @Tag("selenoid")
     @Test

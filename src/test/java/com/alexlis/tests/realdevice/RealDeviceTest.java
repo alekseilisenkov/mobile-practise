@@ -1,5 +1,6 @@
 package com.alexlis.tests.realdevice;
 
+import com.alexlis.tests.MainTestBase;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
@@ -8,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.back;
 
-public class RealDeviceTest extends RealDeviceTestBase{
+public class RealDeviceTest extends MainTestBase {
 
     @Tag("local_android")
     @Test

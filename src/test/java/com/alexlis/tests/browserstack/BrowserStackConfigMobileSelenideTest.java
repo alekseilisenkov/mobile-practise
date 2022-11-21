@@ -1,12 +1,13 @@
 package com.alexlis.tests.browserstack;
 
+import com.alexlis.tests.MainTestBase;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-public class BrowserStackConfigMobileSelenideTest extends TestBase {
+public class BrowserStackConfigMobileSelenideTest extends MainTestBase {
 
     @Tag("browserstack")
     @Test
